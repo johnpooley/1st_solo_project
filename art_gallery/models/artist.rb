@@ -1,10 +1,13 @@
 class Artist
 
+  attr_accessor :name, :date_of_birth, :alive
+  attr_reader :id
+
   def initialize(options)
     @id = options['id'].to_i if options['id']
     @name = options['name']
     @date_of_birth = options['date_of_birth']
-    @alive = options[]
+    @alive = options['alive']
   end
 
   # ###################################
@@ -33,8 +36,8 @@ class Artist
   # update
 
   def update()
-    sql = "UPDATE films SET(name, date_of_birth, alive)
-    VALUES ($1,$2,$3) WHERE ID = $4"
+    sql = "UPDATE artists SET(name, date_of_birth, alive)
+    VALUES ($1,$2,$3) WHERE id = $4"
     values = [@@name, @date_of_birth, @alive, @id]
     SqlRunner.run(sql, values)
   end
