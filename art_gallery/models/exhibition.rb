@@ -1,3 +1,6 @@
+require_relative('../db/sql_runner.rb')
+
+
 class Exhibition
 
   attr_accessor :name, :info, :active

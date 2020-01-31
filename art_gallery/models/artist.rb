@@ -1,4 +1,8 @@
+require_relative('../db/sql_runner.rb')
+
+
 class Artist
+
 
   attr_accessor :name, :date_of_birth, :alive
   attr_reader :id
@@ -50,7 +54,7 @@ class Artist
   end
 
   def delete()
-    sql "DELETE FROM artists WHERE id = $1"
+    sql = "DELETE FROM artists WHERE id = $1"
     values = [@id]
     SqlRunner.run(sql, values)
   end
