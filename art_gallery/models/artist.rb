@@ -31,10 +31,18 @@ class Artist
 # read
 
   def self.all()
-    sql = "RETURN artists.* FROM artists"
+    sql = "SELECT artists.* FROM artists"
     artists = SqlRunner.run(sql)
     results = artists.map{|artist| Artist.new(artist)}
     return results
+  end
+
+  def self.find(id)
+    sql = "SELECT * FROM artists
+          WHERE id = $1"
+    values = [id]
+    results = SqlRunner.run(sql, values)
+    return Artist.new(results.first)
   end
 
   # update
@@ -61,5 +69,12 @@ class Artist
 
   ########################################################
 
+  def artworks()
+    sql = "SELECT * FROM artworks WHERE artist_id = $1"
+    values = [@id]
+    results = SqlRunner.run(sql, values)
+    works = results.map{|art| Artwork.new(art)}
+    return works
+  end
 
 end

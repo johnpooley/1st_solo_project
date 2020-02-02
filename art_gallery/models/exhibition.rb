@@ -31,7 +31,7 @@ class Exhibition
   # read
 
   def self.all()
-    sql = "RETURN exhibitions.* FROM exhibitions"
+    sql = "SELECT exhibitions.* FROM exhibitions"
     exhibitions = SqlRunner.run(sql)
     results = exhibitions.map{|exhibition| Exhibition.new(exhibition)}
     return results
@@ -59,6 +59,18 @@ class Exhibition
     SqlRunner.run(sql, values)
   end
 
-############################################################
+  ############################################################
+
+  def artworks()
+    sql = "SELECT * FROM artworks WHERE exhibition_id = $1"
+    values = [@id]
+    results = SqlRunner.run(sql, values)
+    works = results.map{|art| Artwork.new(art)}
+    return works
+  end
+
+  def artists()
+    sql = "SELECT artists.* FROM artists INNER JOIN artwoks "
+  end
 
 end

@@ -1,0 +1,14 @@
+<h1>Artworks</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Year Painted</th>
+  </tr>
+  <% for artwork in @artworks %>
+  <tr>
+    <td><a href="visitor/artworks/<%=artwork.id%>"><%=artwork.title%></a></td>
+    <th><%=artwork.date %></th>
+  </tr>
+  <% end %>
+</table>
