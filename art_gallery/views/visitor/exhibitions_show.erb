@@ -1,0 +1,6 @@
+,<h1>Here are our current exhibitions</h1>
+
+<p><% @exhibitions_live.exhibitions.each do |exhibition| %></p>
+<li><%= exhibition.name %></li>
+<% end %>
+</ul>

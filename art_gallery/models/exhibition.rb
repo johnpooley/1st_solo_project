@@ -37,6 +37,13 @@ class Exhibition
     return results
   end
 
+  def self.all_live()
+    sql = "SELECT exhibitions.* FROM exhibitions WHERE active = 'true'"
+    exhibitions = SqlRunner.run(sql)
+    results = exhibitions.map{|exhibition| Exhibition.new(exhibition)}
+    return results
+  end
+
   # update
 
   def update()

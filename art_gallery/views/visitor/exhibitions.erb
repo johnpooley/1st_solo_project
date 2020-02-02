@@ -1,0 +1,14 @@
+<h1>Here are out current exhibitions</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Information</th>
+  </tr>
+  <% for exhibition in @exhibitions_live %>
+  <tr>
+    <td><a href="visitor/exhibitions/<%=exhibition.id%>"><%=exhibition.name%></a></td>
+    <th><%=exhibition.info %></th>
+  </tr>
+  <% end %>
+</table>
