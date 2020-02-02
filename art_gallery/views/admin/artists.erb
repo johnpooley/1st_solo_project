@@ -1,0 +1,18 @@
+<h1>Artists</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Date Of Birth</th>
+    <th>Alive?</th>
+    <th>    </th>
+  </tr>
+  <% for artist in @artists %>
+  <tr>
+    <td><a href="artists/<%=artist.id%>"><%=artist.name%></a></td>
+    <td><%=artist.date_of_birth %></td>
+    <td><%=artist.alive%></td>
+
+  </tr>
+  <% end %>
+</table>

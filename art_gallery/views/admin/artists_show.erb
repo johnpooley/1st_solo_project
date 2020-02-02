@@ -1,0 +1,17 @@
+<h1><%= @artist.name %> is an Artist</h1>
+
+<p>Born in the year: <%= @artist.date_of_birth %></p>
+
+<p>Selected Artworks</p>
+
+<ul>
+
+
+<p><% @artist.artworks.each do |art| %></p>
+<li><%= art.title %></li>
+<% end %>
+
+<form  action="/admin/artists/:id" method="post">
+  <input type="submit" value="Delete artist">
+</form>
+</ul>
