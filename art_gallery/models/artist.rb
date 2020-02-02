@@ -21,14 +21,14 @@ class Artist
 
   def save()
     sql = "INSERT INTO artists (name, date_of_birth, alive)
-            VALUES ($1,$2,$3)
-            RETURNING id"
+    VALUES ($1,$2,$3)
+    RETURNING id"
     values = [@name, @date_of_birth, @alive]
     artist = SqlRunner.run(sql, values).first
     @id = artist['id'].to_i
   end
 
-# read
+  # read
 
   def self.all()
     sql = "SELECT artists.* FROM artists"
@@ -39,7 +39,7 @@ class Artist
 
   def self.find(id)
     sql = "SELECT * FROM artists
-          WHERE id = $1"
+    WHERE id = $1"
     values = [id]
     results = SqlRunner.run(sql, values)
     return Artist.new(results.first)
@@ -77,4 +77,16 @@ class Artist
     return works
   end
 
+  def is_alive()
+    sql = "SELECT alive FROM artists WHERE id = $1"
+    values = [@id]
+    results = SqlRunner.run(sql, values)
+    # if results[alive].to_str == "true"
+    #    yes = "is"
+    # else yes = "was"
+    # end
+    # return yes
+    return "was" unless results.first.values == ["true"]
+    return "is"
+  end
 end

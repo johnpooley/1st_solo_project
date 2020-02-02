@@ -1,6 +1,11 @@
-,<h1>Here are our current exhibitions</h1>
+<h1><%= @exhibition.name %></h1>
 
-<p><% @exhibitions_live.exhibitions.each do |exhibition| %></p>
-<li><%= exhibition.name %></li>
+<p><%= @exhibition.info %></p>
+
+<ul>
+
+
+<p><% @exhibition.artworks.each do |art| %></p>
+<li><%= art.title %></li>
 <% end %>
 </ul>

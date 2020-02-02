@@ -1,0 +1,16 @@
+<p>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Information</th>
+    </tr>
+    <% for exhibition in @exhibitions_done %>
+    <tr>
+      <td><a href="<%=exhibition.id%>"><%=exhibition.name%></a></td>
+      <th><%=exhibition.info %></th>
+    </tr>
+    <% end %>
+
+
+
+</table>

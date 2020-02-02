@@ -44,6 +44,23 @@ class Exhibition
     return results
   end
 
+  def self.all_done()
+    sql = "SELECT exhibitions.* FROM exhibitions WHERE active = 'false'"
+    exhibitions = SqlRunner.run(sql)
+    results = exhibitions.map{|exhibition| Exhibition.new(exhibition)}
+    return results
+  end
+
+
+  def self.find(id)
+    sql = "SELECT * FROM exhibitions
+    WHERE id = $1"
+    values = [id]
+    results = SqlRunner.run(sql, values)
+    return Exhibition.new(results.first)
+  end
+
+
   # update
 
   def update()

@@ -1,5 +1,5 @@
 <h1>Here are out current exhibitions</h1>
-
+<p>
 <table>
   <tr>
     <th>Name</th>
@@ -7,8 +7,12 @@
   </tr>
   <% for exhibition in @exhibitions_live %>
   <tr>
-    <td><a href="visitor/exhibitions/<%=exhibition.id%>"><%=exhibition.name%></a></td>
+    <td><a href="<%=exhibition.id%>"><%=exhibition.name%></a></td>
     <th><%=exhibition.info %></th>
   </tr>
   <% end %>
-</table>
+</p>
+<br>
+
+  <p><a href="./previous_exhibitions">Previous Exhibitions</a></p>
+</p>
