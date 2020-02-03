@@ -3,8 +3,13 @@
 <form  action="/admin/newartwork" method="post">
   <label for="title">Title:</label>
   <input id="title" type="text" name="title" />
+
   <label for="info">Info:</label>
-  <input id="info" type="text" name="info" />
+  <input id="info" type="text" name="description" />
+
+  <label for="date">Year Painted:</label>
+  <input id="date" type="text" name="date" />
+
   <label for="artist">Artist:</label>
   <select id="artist" name="artist_id">
     <% @artists.each do |artist| %>

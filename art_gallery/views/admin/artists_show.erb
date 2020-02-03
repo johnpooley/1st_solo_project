@@ -10,7 +10,7 @@
 <p><% @artist.artworks.each do |art| %></p>
 <li><%= art.title %></li>
 <% end %>
-
+<br><br>
 <form  action="/admin/artists/<%= @artist.id %>" method="post">
   <input type="submit" value="Delete artist">
 </form>

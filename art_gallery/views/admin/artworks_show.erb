@@ -1,4 +1,10 @@
 <h1><%= @artwork.title %> is a work by <%= @artwork.artist.name%></h1>
 
 <p>Created in the year: <%= @artwork.date %></p>
+<br>
 <p><%= @artwork.description %></p>
+<br>
+<br>
+<form  action="/admin/artworks/<%= @artwork.id %>" method="post">
+  <input type="submit" value="Delete artwork">
+</form>

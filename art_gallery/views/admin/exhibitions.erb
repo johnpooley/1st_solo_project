@@ -1,4 +1,4 @@
-<h1>Artists</h1>
+<h1>Exhibitions</h1>
 
 <table>
   <tr>
@@ -9,11 +9,11 @@
   </tr>
   <% for exhibition in @exhibitions %>
   <tr>
-    <td><a href="exhibitions/<%=exhibition.id%>"><%=exhibition.name%></a></td>
+    <td><a href="/admin/exhibitions/<%=exhibition.id%>"><%=exhibition.name%></a></td>
     <td><%=exhibition.info %></td>
     <td><%=exhibition.active%></td>
     <td></td>
-    
+
   </tr>
   <% end %>
 </table>
