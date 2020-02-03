@@ -28,7 +28,7 @@ get '/visitor/visitor/exhibitions/' do
   erb(:'../views/visitor/exhibitions')
 end
 
-get '/visitor/visitor/exhibitions/:id' do
+get '/visitor/exhibitions/:id' do
   @exhibition = Exhibition.find(params['id'].to_i)
   erb(:"visitor/exhibitions_show")
 end

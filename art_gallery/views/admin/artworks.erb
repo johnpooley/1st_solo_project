@@ -1,0 +1,18 @@
+<h1>Artworks</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Artist</th>
+    <th>Current Exhibition</th>
+    <th>    </th>
+  </tr>
+  <% for artwork in @artworks %>
+  <tr>
+    <td><a href="artworks/<%=artwork.id%>"><%=artwork.title%></a></td>
+    <td><%=artwork.artist.name %></td>
+    <td><%=artwork.exhibition.name%></td>
+
+  </tr>
+  <% end %>
+</table>

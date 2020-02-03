@@ -1,0 +1,28 @@
+<p>hi</p>
+
+<form  action="/admin/newartwork" method="post">
+  <label for="title">Title:</label>
+  <input id="title" type="text" name="title" />
+  <label for="info">Info:</label>
+  <input id="info" type="text" name="info" />
+  <label for="artist">Artist:</label>
+  <select id="artist" name="artist_id">
+    <% @artists.each do |artist| %>
+    <option value=<%= artist.id %>><%= artist.name.capitalize %></option>
+    <% end %>
+  </select>
+
+  <label for="exhibition">Exhibition:</label>
+  <select id="exhibition" name="exhibition_id">
+    <% @exhibitions.each do |exhibition| %>
+    <option value=<%= exhibition.id %>><%= exhibition.name.capitalize %></option>
+    <% end %>
+
+
+
+
+
+      <input type="submit"  value="Add artwork">
+
+    </select>
+  </form>

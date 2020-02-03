@@ -45,3 +45,48 @@ post '/admin/artists/:id' do
   Artist.delete(params['id'].to_i)
   redirect to("/admin/artists")
 end
+
+
+# artworks
+get '/admin/artworks' do
+  @artworks = Artwork.all()
+  erb(:'../views/admin/artworks')
+end
+
+get '/admin/artworks/:id' do
+  @artwork = Artwork.find(params['id'].to_i)
+  erb(:'../views/admin/artworks_show')
+end
+
+
+get '/admin/newartwork' do
+  @artists = Artist.all()
+  @exhibitions = Exhibition.all()
+  erb(:'../views/admin/new_artwork')
+end
+
+post '/admin/newartwork' do
+  artwork = Artwork.new(params)
+  artwork.save
+  redirect to("/admin")
+end
+
+
+
+# exhibitions
+get '/admin/exhibitions' do
+  @exhibitions = Exhibition.all()
+  # @delete = Artist.delete()
+  erb(:'../views/admin/exhibitions')
+end
+
+get '/admin/newexhibition' do
+  erb(:'../views/admin/new_exhibition')
+end
+
+
+post '/admin/newexhibition' do
+  artist = Exhibition.new(params)
+  artist.save
+  redirect to("/admin")
+end

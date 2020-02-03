@@ -1,0 +1,19 @@
+<h1>Artists</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Info</th>
+    <th>Active?</th>
+    <th>Update Status</th>
+  </tr>
+  <% for exhibition in @exhibitions %>
+  <tr>
+    <td><a href="exhibitions/<%=exhibition.id%>"><%=exhibition.name%></a></td>
+    <td><%=exhibition.info %></td>
+    <td><%=exhibition.active%></td>
+    <td></td>
+    
+  </tr>
+  <% end %>
+</table>
