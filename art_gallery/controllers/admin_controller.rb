@@ -41,7 +41,7 @@ post '/admin/newartist' do
 end
 
 post '/admin/artists/:id' do
-  artist = Artist.find(params['id'].to_i)
-  artist.delete()
+  # artist = Artist.find(params['id'].to_i)
+  Artist.delete(params['id'].to_i)
   redirect to("/admin/artists")
 end

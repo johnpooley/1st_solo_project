@@ -63,7 +63,7 @@ class Artwork
         artist_id,
         date,
         description)
-        VALUES ($1,$2,$3,$4,$5,) WHERE id = $6"
+        = ($1,$2,$3,$4,$5) WHERE id = $6"
         values = [@title, @exhibition, @artist,
           @date, @description, @id]
           SqlRunner.run(sql, values)
@@ -78,7 +78,7 @@ class Artwork
 
         def delete()
           sql = "DELETE FROM artworks WHERE id = $1"
-          values = [@id]
+          values = [id]
           SqlRunner.run(sql, values)
         end
 
@@ -89,6 +89,13 @@ class Artwork
           values = [@artist]
           results = SqlRunner.run(sql, values)
           return Artist.new(results.first)
+        end
+
+        def exhibition()
+          sql = "SELECT * FROM exhibitions WHERE id = $1"
+          values = [@exhibition]
+          results = SqlRunner.run(sql, values)
+          return Exhibition.new(results.first)
         end
 
 end

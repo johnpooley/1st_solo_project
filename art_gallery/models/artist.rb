@@ -49,8 +49,8 @@ class Artist
 
   def update()
     sql = "UPDATE artists SET(name, date_of_birth, alive)
-    VALUES ($1,$2,$3) WHERE id = $4"
-    values = [@@name, @date_of_birth, @alive, @id]
+    = ($1,$2,$3) WHERE id = $4"
+    values = [@name, @date_of_birth, @alive, @id]
     SqlRunner.run(sql, values)
   end
 
@@ -63,7 +63,7 @@ class Artist
 
   def self.delete(id)
     sql = "DELETE FROM artists WHERE id = $1"
-    values = [@id]
+    values = [id]
     SqlRunner.run(sql, values)
   end
 

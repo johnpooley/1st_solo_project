@@ -33,7 +33,7 @@ get '/visitor/visitor/exhibitions/:id' do
   erb(:"visitor/exhibitions_show")
 end
 
-get '/visitor/visitor/exhibitions/previous_exhibitions' do
+get '/visitor/previous_exhibitions' do
   # @exhibitions_live = Exhibition.all_live()
   @exhibitions_done = Exhibition.all_done()
   erb(:'../views/visitor/previous_exhibitions')

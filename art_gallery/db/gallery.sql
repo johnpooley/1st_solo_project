@@ -22,8 +22,8 @@ CREATE TABLE artworks
 (
   id SERIAL primary key,
   title VARCHAR(255),
-  exhibition_id INT references exhibitions(id),
-  artist_id INT references artists(id),
+  exhibition_id INT references exhibitions(id) ON DELETE CASCADE,
+  artist_id INT references artists(id) ON DELETE CASCADE,
   date VARCHAR(255),
   description VARCHAR(255)
 );

@@ -64,10 +64,9 @@ class Exhibition
   # update
 
   def update()
-    sql = "UPDATE exhibitions SET(name, info, active)
-    VALUES ($1,$2,$3) WHERE id = $4"
+    sql = "UPDATE exhibitions SET(name, info, active) = ($1,$2,$3) WHERE id = $4"
     values = [@name, @info, @active, @id]
-    SqlRunner.run(sql)
+    SqlRunner.run(sql, values)
   end
 
   # delete
@@ -79,7 +78,7 @@ class Exhibition
 
   def delete()
     sql = "DELETE FROM exhibitions WHERE id = $1"
-    values = [@id]
+    values = [id]
     SqlRunner.run(sql, values)
   end
 
@@ -94,7 +93,15 @@ class Exhibition
   end
 
   def artists()
-    sql = "SELECT artists.* FROM artists INNER JOIN artwoks "
+    sql = "SELECT artists.*
+    FROM artists
+    INNER JOIN artworks ON artworks.artist_id = artists.id
+    WHERE artworks.exhibition_id = $1 "
+    values = [@id]
+    artists_data = SqlRunner.run(sql, values)
+    artists = artists_data.map{|artist| Artist.new(artist)}
+    return artists
+
   end
 
 end

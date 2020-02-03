@@ -31,6 +31,16 @@ derek_riggs   = Artist.new({
 
 derek_riggs.save()
 
+artist_test   = Artist.new({
+  "name" => "Test",
+  "date_of_birth" => "1900",
+  "alive" => "true"
+  })
+
+artist_test.save()
+artist_test.name = "testing"
+artist_test.update
+
 
 pretty_pictures = Exhibition.new({
   "name" => "Pretty Pictures",
@@ -56,6 +66,8 @@ modern_toss = Exhibition.new({
 
 modern_toss.save()
 
+modern_toss.name = "More Modern Toss"
+modern_toss.update()
 
 sunflowers = Artwork.new({
   "title" => "Sunflowers",
@@ -67,3 +79,32 @@ sunflowers = Artwork.new({
   })
 
 sunflowers.save()
+
+artwork_test = Artwork.new({
+  "title" => "test art",
+  "exhibition_id" => nice_sculptures.id,
+  "artist_id" => artist_test.id,
+  "date" => "1859",
+  "description" => "a test"
+
+  })
+
+artwork_test.save()
+
+artwork_test2 = Artwork.new({
+  "title" => "David",
+  "exhibition_id" => nice_sculptures.id,
+  "artist_id" => artist_test.id,
+  "date" => "1859",
+  "description" => "another test"
+
+  })
+
+artwork_test2.save()
+
+artwork_test2.exhibition = pretty_pictures.id
+artwork_test2.update
+
+
+binding.pry
+nil
