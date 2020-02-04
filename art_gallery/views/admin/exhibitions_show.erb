@@ -1,0 +1,13 @@
+<h1><%= @exhibition.name %></h1>
+
+<p><%= @exhibition.info %></p>
+
+<ul>
+
+
+<p><% @exhibition.artworks.each do |art| %></p>
+<li><a href="../artworks/<%=art.id%>"><%= art.title %></a></li>
+<% end %>
+</ul>
+
+<a href="/admin/exhibitions/<%= @exhibition.id %>/edit">Edit</a>

@@ -22,3 +22,5 @@ text-align: : center;}
 
  th, td { border: 1px solid yellow;
 }
+
+img { max-width: 40px;}

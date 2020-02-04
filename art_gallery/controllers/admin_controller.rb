@@ -115,6 +115,12 @@ post '/admin/newexhibition' do
   redirect to("/admin")
 end
 
+get '/admin/exhibitions/:id' do
+  @exhibition = Exhibition.find(params['id'].to_i)
+  erb(:"admin/exhibitions_show")
+end
+
+
 get '/admin/exhibitions/:id/edit'do
 @exhibition = Exhibition.find(params['id'].to_i)
 erb(:"admin/exhibitions_edit")

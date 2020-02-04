@@ -4,7 +4,7 @@
 <br>
 <p><%= @artwork.description %></p>
 <br>
-<p><img src="<%=@artwork.image %>"></p>
+<p><img src="<%=@artwork.image %>" style="max-width:360px" ></p>
 <br>
 <form  action="/admin/artworks/<%= @artwork.id %>" method="post">
   <input type="submit" value="Delete artwork">
