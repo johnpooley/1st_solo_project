@@ -4,6 +4,8 @@ body {
   font-size: 30px;
   color: red;
   background-image: url("/gallery.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 130%;
 background-image opacity: : 0.2;
 text-shadow:  1px 1px 0 #001;
 text-align: : center;
@@ -18,5 +20,5 @@ a {
 text-align: : center;}
 
 
-table { border: 1px solid black;
+ th, td { border: 1px solid yellow;
 }

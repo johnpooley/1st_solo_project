@@ -1,8 +1,11 @@
 require('sinatra')
 require('sinatra/contrib/all')
+# rewuire('')
 require_relative('../models/artist')
 require_relative('../models/artwork')
 require_relative('../models/exhibition')
+require_relative('../models/time')
+
 
 get '/admin' do
   erb(:'../views/admin/index')
@@ -35,8 +38,19 @@ post '/admin/artists/:id/edited' do
   redirect to "/admin/artists"
 end
 
+get '/admin/artworks/:id/edit' do
+  @artists = Artist.all()
+  @exhibitions = Exhibition.all()
+  @artwork = Artwork.find(params['id'].to_i)
+  erb(:"admin/artworks_edit")
+end
 
-
+post '/admin/artworks/:id/edited' do
+# binding.pry
+  artwork = Artwork.new(params)
+  artwork.update
+  redirect to "/admin/artworks"
+end
 
 
 # add a new artist

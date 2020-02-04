@@ -2,6 +2,8 @@ require("pry-byebug")
 require_relative('../models/artist.rb')
 require_relative('../models/artwork.rb')
 require_relative('../models/exhibition.rb')
+require_relative('../models/time')
+
 
 Artwork.delete_all()
 Artist.delete_all()
@@ -74,8 +76,8 @@ sunflowers = Artwork.new({
   "exhibition_id" => pretty_pictures.id,
   "artist_id" => van_gogh.id,
   "date" => "1859",
-  "description" => "a nice painting of some flowers"
-
+  "description" => "a nice painting of some flowers",
+  "image" => "https://en.wikipedia.org/wiki/Sunflowers_(Van_Gogh_series)#/media/File:Vincent_Willem_van_Gogh_127.jpg"
   })
 
 sunflowers.save()
@@ -85,8 +87,8 @@ artwork_test = Artwork.new({
   "exhibition_id" => nice_sculptures.id,
   "artist_id" => artist_test.id,
   "date" => "1859",
-  "description" => "a test"
-
+  "description" => "a test",
+  "image" => "https://en.wikipedia.org/wiki/Sunflowers_(Van_Gogh_series)#/media/File:Vincent_Willem_van_Gogh_127.jpg"
   })
 
 artwork_test.save()
@@ -96,8 +98,8 @@ artwork_test2 = Artwork.new({
   "exhibition_id" => nice_sculptures.id,
   "artist_id" => artist_test.id,
   "date" => "1859",
-  "description" => "another test"
-
+  "description" => "another test",
+  "image" => "https://en.wikipedia.org/wiki/Sunflowers_(Van_Gogh_series)#/media/File:Vincent_Willem_van_Gogh_127.jpg"
   })
 
 artwork_test2.save()

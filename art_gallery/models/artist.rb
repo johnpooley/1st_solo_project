@@ -91,7 +91,7 @@ class Artist
   end
 
   def exhibitions()
-    sql = "SELECT exhibitions.*
+    sql = "SELECT DISTINCT exhibitions.*
     FROM exhibitions
     INNER JOIN artworks ON artworks.exhibition_id = exhibitions.id
     WHERE artworks.artist_id = $1 "

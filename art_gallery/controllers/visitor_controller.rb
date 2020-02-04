@@ -3,6 +3,8 @@ require('sinatra/contrib/all')
 require_relative('../models/artist')
 require_relative('../models/artwork')
 require_relative('../models/exhibition')
+require_relative('../models/time')
+
 
 get '/visitor' do
 

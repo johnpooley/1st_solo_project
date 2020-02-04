@@ -2,7 +2,7 @@ require_relative('../db/sql_runner.rb')
 
 class Artwork
 
-  attr_accessor :title, :exhibition, :artist, :date, :description
+  attr_accessor :title, :exhibition, :artist, :date, :description, :image
   attr_reader :id
 
   def initialize(options)
@@ -12,6 +12,7 @@ class Artwork
     @artist = options['artist_id'].to_i
     @date = options['date']
     @description = options['description']
+    @image = options['image']
   end
 
 
@@ -27,11 +28,12 @@ class Artwork
       exhibition_id,
       artist_id,
       date,
-      description)
-      VALUES ($1,$2,$3,$4,$5)
+      description,
+    image)
+      VALUES ($1,$2,$3,$4,$5,$6)
       RETURNING id"
       values = [@title, @exhibition, @artist,
-        @date, @description]
+        @date, @description,@image]
         artwork = SqlRunner.run(sql, values).first
         @id = artwork['id'].to_i
   end
@@ -62,10 +64,11 @@ class Artwork
         exhibition_id,
         artist_id,
         date,
-        description)
-        = ($1,$2,$3,$4,$5) WHERE id = $6"
+        description,
+        image)
+        = ($1,$2,$3,$4,$5,$6) WHERE id = $7"
         values = [@title, @exhibition, @artist,
-          @date, @description, @id]
+          @date, @description, @image, @id]
           SqlRunner.run(sql, values)
         end
 
