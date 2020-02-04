@@ -1,7 +1,13 @@
-<h1><%= @artwork.title %> is a work by <%= @artwork.artist.name%></h1>
+<h1><%= @artwork.title %> is a work by
+  <a
+  href="../artists/<%= @artwork.artist.id %>"><%= @artwork.artist.name%>
+  </a>
+</h1>
 
 <p>Created in the year: <%= @artwork.date %></p>
 <p><%= @artwork.description %></p>
-
+<br>
+<p></p>
 <br>
 <br>
+<p>Featured in the exhibition: <a href="../exhibitions/<%=@artwork.exhibition.id%>"><%= @artwork.exhibition.name%></a></p>

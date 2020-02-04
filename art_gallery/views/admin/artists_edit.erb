@@ -1,0 +1,32 @@
+<h1>Edit <%= @artist.name %></h1>
+<form method="POST" action="/admin/artists/<%= @artist.id %>/edited">
+  <div class="form-wrapper">
+
+    <div class="form-el">
+      <label for="name"> Name:</label>
+      <input type="text" name="name" id="name" value="<%= @artist.name %>"/>
+    </div>
+
+
+
+    <div class="form-el">
+      <label for="date_of_birth">Year Of Birth:</label>
+      <input type="number" name="date_of_birth" id="date_of_birth" value="<%= @artist.date_of_birth %>"/>
+    </div>
+
+    <div class="form-el">
+      <label for="alive">Still Alive?</label>
+      <select name="alive" value="alive">
+      <option value=<%= @artist.alive %> selected><%= @artist.alive %></option>
+      <option value=<%= @artist.is_living(@artist.alive) %> ><%= @artist.is_living(@artist.alive) %></option>
+
+    </div>
+
+
+
+    <div class="form-el">
+      <input type="submit" value="Update Artist"/>
+    </div>
+
+  </div>
+</form>

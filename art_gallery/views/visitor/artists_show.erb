@@ -8,6 +8,15 @@
 
 
 <p><% @artist.artworks.each do |art| %></p>
-<li><%= art.title %></li>
+<li><a href="../artworks/<%=art.id%>"><%= art.title %></a></li>
 <% end %>
+<br><br><br>
+
+<p>Exhibitions featuring this artist</p>
+
+<p><% @artist.exhibitions.each do |art| %></p>
+<li><a href="/visitor/exhibitions/<%=art.id%>"><%= art.name %></a></li>
+<% end %>
+
+
 </ul>

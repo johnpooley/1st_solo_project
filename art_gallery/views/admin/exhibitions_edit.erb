@@ -1,0 +1,27 @@
+<h1>Edit <%= @exhibition.name %></h1>
+<form method="POST" action="/admin/exhibitions/<%= @exhibition.id %>/edited">
+  <div class="form-wrapper">
+
+    <div class="form-el">
+      <label for="name">Name:</label>
+      <input type="text" name="name" id="name" value="<%= @exhibition.name %>"/>
+      </div>
+
+      <div class="form-el">
+        <label for="info">Info:</label>
+        <input type="text" name="info" size="90" id="info" value="<%= @exhibition.info %>"/>
+        </div>
+
+      <label for="active"> Active Status:</label>
+      <select  name="active" value="active">
+        <option value=<%= @exhibition.active %> selected><%= @exhibition.active %></option>
+        <option value=<%= @exhibition.is_active(@exhibition.active) %>><%= @exhibition.is_active(@exhibition.active) %></option>
+
+      </select>
+    </div>
+    <div class="form-el">
+      <input type="submit" value="Update Exhibition"/>
+    </div>
+
+  </div>
+</form>

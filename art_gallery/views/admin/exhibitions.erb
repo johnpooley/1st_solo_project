@@ -5,14 +5,14 @@
     <th>Name</th>
     <th>Info</th>
     <th>Active?</th>
-    <th>Update Status</th>
+    <th>Update Information</th>
   </tr>
   <% for exhibition in @exhibitions %>
   <tr>
     <td><a href="/admin/exhibitions/<%=exhibition.id%>"><%=exhibition.name%></a></td>
     <td><%=exhibition.info %></td>
     <td><%=exhibition.active%></td>
-    <td></td>
+    <td><a href="/admin/exhibitions/<%=exhibition.id%>/edit">edit information</a></td>
 
   </tr>
   <% end %>

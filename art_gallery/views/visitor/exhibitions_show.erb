@@ -6,6 +6,6 @@
 
 
 <p><% @exhibition.artworks.each do |art| %></p>
-<li><%= art.title %></li>
+<li><a href="../artworks/<%=art.id%>"><%= art.title %></a></li>
 <% end %>
 </ul>

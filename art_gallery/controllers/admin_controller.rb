@@ -22,7 +22,17 @@ get '/admin/artists/:id'do
 @artist = Artist.find(params['id'].to_i)
 erb(:"admin/artists_show")
 # @delete = Artist.delete(params['id'].to_i)
+end
 
+get '/admin/artists/:id/edit'do
+@artist = Artist.find(params['id'].to_i)
+erb(:"admin/artists_edit")
+end
+
+post '/admin/artists/:id/edited' do
+  artist = Artist.new(params)
+  artist.update
+  redirect to "/admin/artists"
 end
 
 
@@ -89,4 +99,15 @@ post '/admin/newexhibition' do
   artist = Exhibition.new(params)
   artist.save
   redirect to("/admin")
+end
+
+get '/admin/exhibitions/:id/edit'do
+@exhibition = Exhibition.find(params['id'].to_i)
+erb(:"admin/exhibitions_edit")
+end
+
+post '/admin/exhibitions/:id/edited' do
+  artist = Exhibition.new(params)
+  artist.update
+  redirect to "/admin/exhibitions"
 end

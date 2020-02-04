@@ -50,10 +50,12 @@ get '/visitor/artists' do
   erb(:'../views/visitor/artists')
 end
 
-get '/visitor/visitor/artists/:id' do
+get '/visitor/artists/:id' do
   @artist = Artist.find(params['id'].to_i)
   erb(:"visitor/artists_show")
 end
+
+
 
 # artworks
 
@@ -62,7 +64,7 @@ get '/visitor/artworks' do
   erb(:'../views/visitor/artworks')
 end
 
-get '/visitor/visitor/artworks/:id' do
+get '/visitor/artworks/:id' do
   @artwork = Artwork.find(params['id'].to_i)
   erb(:"visitor/artworks_show")
 end

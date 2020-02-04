@@ -89,4 +89,38 @@ class Artist
     return "was" unless results.first.values == ["true"]
     return "is"
   end
+
+  def exhibitions()
+    sql = "SELECT exhibitions.*
+    FROM exhibitions
+    INNER JOIN artworks ON artworks.exhibition_id = exhibitions.id
+    WHERE artworks.artist_id = $1 "
+    values = [@id]
+    artists_data = SqlRunner.run(sql, values)
+    exhibitions = artists_data.map{|exhibition| Exhibition.new(exhibition)}
+    return exhibitions
+
+  end
+
+  def exhibitions_distinct()
+    sql = "SELECT DISTINCT exhibitions.id
+    FROM exhibitions
+    INNER JOIN artworks ON artworks.exhibition_id = exhibitions.id
+    WHERE artworks.artist_id = $1 "
+    values = [@id]
+    artists_data = SqlRunner.run(sql, values)
+    # exhibitions = artists_data.map{|exhibition| Exhibition.new(exhibition)}
+    # return exhibitions
+      # sql = "SELECT * FROM exhibitions WHERE artist_id = $1"
+      # values = [@id]
+      # results = SqlRunner.run(sql, values)
+
+  end
+
+def is_living(alive)
+  return "false" unless alive == "false"
+  return "true"
+end
+
+
 end

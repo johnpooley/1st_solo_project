@@ -104,4 +104,10 @@ class Exhibition
 
   end
 
+  def is_active(active)
+    return "false" unless active == "false"
+    return "true"
+  end
+
+
 end
