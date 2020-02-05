@@ -2,12 +2,12 @@
 <form method="POST" action="/admin/exhibitions/<%= @exhibition.id %>/edited">
   <div class="form-wrapper">
 
-    <div class="form-el">
+    <div class="listy">
       <label for="name">Name:</label>
       <input type="text" name="name" id="name" value="<%= @exhibition.name %>"/>
       </div>
 
-      <div class="form-el">
+      <div class="listy">
         <label for="info">Info:</label>
         <input type="text" name="info" size="90" id="info" value="<%= @exhibition.info %>"/>
         </div>
@@ -19,7 +19,7 @@
 
       </select>
     </div>
-    <div class="form-el">
+    <div class="listy">
       <input type="submit" value="Update Exhibition"/>
     </div>
 

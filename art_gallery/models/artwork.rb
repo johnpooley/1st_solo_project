@@ -94,7 +94,7 @@ class Artwork
           return Artist.new(results.first)
         end
 
-        def exhibition()
+        def exhibitionlist()
           sql = "SELECT * FROM exhibitions WHERE id = $1"
           values = [@exhibition]
           results = SqlRunner.run(sql, values)

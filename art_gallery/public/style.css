@@ -9,7 +9,11 @@ body {
 background-image opacity: : 0.2;
 text-shadow:  1px 1px 0 #001;
 text-align: : center;
+}
 
+#maintitle {
+  font-family: 'Apple Chancery';
+  text-align: center;
 }
 
 a {
@@ -24,3 +28,7 @@ text-align: : center;}
 }
 
 img { max-width: 40px;}
+
+.listy .form-wrapper {font-family: 'Baskerville';
+text-align: : center;
+}

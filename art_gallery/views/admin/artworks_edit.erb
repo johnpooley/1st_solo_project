@@ -2,35 +2,35 @@
 <form method="POST" action="/admin/artworks/<%= @artwork.id %>/edited">
   <div class="form-wrapper">
 
-    <div class="form-el">
+    <div class="listy">
       <label for="title"> Name:</label>
       <input type="text" name="title" id="title" value="<%= @artwork.title %>"/>
     </div>
 
 
 
-    <div class="form-el">
+    <div class="listy">
       <label for="description">Description:</label>
       <input type="text" name="description" id="description" size="90" value="<%= @artwork.description %>"/>
     </div>
 
-    <div class="form-el">
+    <div class="listy">
       <label for="date">Date:</label>
       <input type="number" name="date" id="date" value="<%= @artwork.date %>"/>
     </div>
 
-    <div class="form-el">
+    <div class="listy">
       <label for="image">Image:</label>
       <input type="text" name="image" id="image" value="<%= @artwork.image %>"/>
     </div>
 
 
-    <div class="form-el">
+    <div class="listy">
       <label for="artist_select">Select Artist:</label>
       <select name="artist_id" id="artist_select" selected="<%= @artwork.artist  %>">
         <% @artists.each do |artist| %>
           <% if artist.id == @artwork.artist %>
-            <option value=<%= artist.id %> selected><%= artist.name %></option>
+            <option selected="selected" value=<%= artist.id %> ><%= artist.name %></option>
           <% else %>
             <option value=<%= artist.id %>><%= artist.name %></option>
           <% end %>
@@ -38,12 +38,12 @@
       </select>
     </div>
 
-    <div class="form-el">
+    <div class="listy">
       <label for="exhibition_select">Select Exhibition:</label>
-      <select name="exhibition_id" id="exhibition_select" selected="<%= @artwork.exhibition  %>">
+      <select name="exhibition_id" id="exhibition_select" selected="<%= @artwork.exhibition%>">
         <% @exhibitions.each do |exhibition| %>
           <% if exhibition.id == @artwork.exhibition %>
-            <option value=<%= exhibition.id %> selected><%= exhibition.name %></option>
+            <option value=<%= exhibition.id %> selected="selected" ><%= exhibition.name %></option>
           <% else %>
             <option value=<%= exhibition.id %>><%= exhibition.name %></option>
           <% end %>
@@ -57,9 +57,8 @@
 
 <br><br>
 
-    <div class="form-el">
+    <div class="listy">
       <input type="submit" value="Update Artwork"/>
     </div>
 
-  </div>
 </form>
