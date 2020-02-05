@@ -24,12 +24,11 @@
       <input type="text" name="image" id="image" value="<%= @artwork.image %>"/>
     </div>
 
-
     <div class="listy">
       <label for="artist_select">Select Artist:</label>
-      <select name="artist_id" id="artist_select" selected="<%= @artwork.artist  %>">
+      <select name="artist_id" id="artist_select" selected="<%= @artwork.artist %>">
         <% @artists.each do |artist| %>
-          <% if artist.id == @artwork.artist %>
+          <% if artist.id == @artwork.artist.id %>
             <option selected="selected" value=<%= artist.id %> ><%= artist.name %></option>
           <% else %>
             <option value=<%= artist.id %>><%= artist.name %></option>
@@ -37,11 +36,11 @@
         <% end %>
       </select>
     </div>
-
     <div class="listy">
       <label for="exhibition_select">Select Exhibition:</label>
       <select name="exhibition_id" id="exhibition_select" selected="<%= @artwork.exhibition%>">
         <% @exhibitions.each do |exhibition| %>
+
           <% if exhibition.id == @artwork.exhibition %>
             <option value=<%= exhibition.id %> selected="selected" ><%= exhibition.name %></option>
           <% else %>
