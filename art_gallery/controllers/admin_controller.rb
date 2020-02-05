@@ -15,16 +15,15 @@ get '/admin/' do
   erb(:'../views/admin/index')
 end
 
+# artists
 get '/admin/artists' do
   @artists = Artist.all()
-  # @delete = Artist.delete()
   erb(:'../views/admin/artists')
 end
 
 get '/admin/artists/:id'do
 @artist = Artist.find(params['id'].to_i)
 erb(:"admin/artists_show")
-# @delete = Artist.delete(params['id'].to_i)
 end
 
 get '/admin/artists/:id/edit'do
@@ -37,6 +36,27 @@ post '/admin/artists/:id/edited' do
   artist.update
   redirect to "/admin/artists"
 end
+
+
+
+# add a new artist
+get '/admin/newartist' do
+  erb(:'../views/admin/new_artist')
+end
+
+post '/admin/newartist' do
+  artist = Artist.new(params)
+  artist.save
+  redirect to("/admin")
+end
+
+post '/admin/artists/:id' do
+  Artist.delete(params['id'].to_i)
+  redirect to("/admin/artists")
+end
+
+
+# artworks
 
 get '/admin/artworks/:id/edit' do
   @artists = Artist.all()
@@ -52,26 +72,6 @@ post '/admin/artworks/:id/edited' do
   redirect to "/admin/artworks"
 end
 
-
-# add a new artist
-get '/admin/newartist' do
-  erb(:'../views/admin/new_artist')
-end
-
-post '/admin/newartist' do
-  artist = Artist.new(params)
-  artist.save
-  redirect to("/admin")
-end
-
-post '/admin/artists/:id' do
-  # artist = Artist.find(params['id'].to_i)
-  Artist.delete(params['id'].to_i)
-  redirect to("/admin/artists")
-end
-
-
-# artworks
 get '/admin/artworks' do
   @artworks = Artwork.all()
   erb(:'../views/admin/artworks')
